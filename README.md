@@ -1,3 +1,137 @@
+#English
+# Windows Console Manager
+
+A simple graphical interface in Python to manage and launch Windows consoles (MMC tools). This program is designed for system administrators and divides the consoles into two categories:
+- **Server Consoles**: To manage tools specific to Windows servers.
+- **Client Consoles**: To manage tools related to user workstations.
+
+## Features
+
+- **Console Display**: Consoles are listed in a table format with three columns:
+  - **Name**: Displays the console name for quick identification.
+  - **Command**: The corresponding MMC command (e.g., `compmgmt.msc`).
+  - **Description**: Briefly explains the utility or main function of the console.
+- **Console Launch**: Select a console and click **Launch** to execute it.
+- **Distinct Categories**: Two separate sections for Server and Client consoles.
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Python 3.6 or higher.
+- The `tkinter` module (included by default with Python on Windows).
+
+### Download
+
+1. Clone this repository or download the `console_manager.py` file:
+   ```bash
+   git clone https://github.com/your-username/console-manager-windows.git
+   cd console-manager-windows
+   ```
+
+2. Install dependencies (if needed):
+   ```bash
+   pip install -r requirements.txt
+   ```
+   (No additional modules are required by default since the program uses `tkinter` and `subprocess`.)
+
+---
+
+## Usage
+
+1. Run the program with Python:
+   ```bash
+   python console_manager.py
+   ```
+
+2. A window will open with two sections:
+   - **Server Consoles**: Displays MMC tools for server management.
+   - **Client Consoles**: Displays MMC tools for user workstations.
+
+3. Select a console from the table and click **Launch** to execute it.
+
+---
+
+## Adding New Consoles
+
+### Step 1: Modify the Code
+
+To add a new console:
+
+1. Open the `console_manager.py` file.
+2. Add the console to either the `server_consoles` or `client_consoles` list using the following format (these lists are defined in the global variables section at the beginning of the `console_manager.py` file):
+   ```python
+   {"name": "Console Name", "command": "command.msc", "description": "Description of the console."}
+   ```
+
+### Example Addition
+
+If you want to add a console for managing printers in the Server category, add this entry to `server_consoles`:
+```python
+server_consoles.append(
+    {"name": "Print Management", "command": "printmanagement.msc", "description": "Manages printers and print queues."}
+)
+```
+
+---
+
+## Technical Details
+
+1. **Console Lists**:
+   - The consoles are organized into two Python lists:
+
+```python
+server_consoles = [
+    {"name": "Active Directory Users and Computers", "command": "dsa.msc", "description": "Manages Active Directory users and computers."},
+    {"name": "DNS Manager", "command": "dnsmgmt.msc", "description": "Manages DNS zones and records."}
+]
+
+client_consoles = [
+    {"name": "Computer Management", "command": "compmgmt.msc", "description": "Combines multiple administrative tools."},
+    {"name": "Device Manager", "command": "devmgmt.msc", "description": "Manages hardware devices and drivers."}
+]
+```
+   - `server_consoles`: For Server tools.
+   - `client_consoles`: For Client tools.
+
+2. **Graphical Interface with Tkinter**:
+   - Uses `Treeview` to display consoles in a table format.
+   - The tables have three columns: Name, Command, Description.
+
+3. **Launching Consoles**:
+   - When a console is selected, the program uses `subprocess.run()` to execute the corresponding MMC command. If an error occurs during execution, an error dialog is displayed to inform the user.
+
+---
+
+## Contributing
+
+If you want to contribute:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/console-manager-windows.git
+   ```
+2. Create a branch for your changes:
+
+Example branch name: `feature/new-console` to add a feature or `fix/console-launch-bug` to fix a problem.
+   ```bash
+   git checkout -b new-feature
+   ```
+3. Submit a Pull Request with your changes.
+
+---
+
+## License
+
+This project is licensed under the [MIT](LICENSE) license. You are free to use, modify, and distribute it under the terms of the license.
+
+
+
+
+#FRench
+
 # Gestionnaire de Consoles Windows
 
 Une interface graphique simple en Python pour gérer et lancer les consoles Windows (outils MMC). Ce programme est conçu pour les administrateurs systèmes et divise les consoles en deux catégories :
