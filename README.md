@@ -6,7 +6,10 @@ Une interface graphique simple en Python pour gérer et lancer les consoles Wind
 
 ## Fonctionnalités
 
-- **Affichage des consoles** : Les consoles sont listées sous forme de tableau avec :
+- **Affichage des consoles** : Les consoles sont listées sous forme de tableau avec trois colonnes :
+- **Nom** : Affiche le nom de la console pour une identification rapide.
+- **Commande** : La commande MMC correspondante (par exemple, `compmgmt.msc`).
+- **Description** : Explique brièvement l’utilité ou la fonction principale de la console.
   - Le nom de la console.
   - La commande associée (`*.msc`).
   - Une description de son utilité.
@@ -60,7 +63,7 @@ Une interface graphique simple en Python pour gérer et lancer les consoles Wind
 Pour ajouter une nouvelle console :
 
 1. Ouvrez le fichier `console_manager.py`.
-2. Ajoutez la console dans la liste `server_consoles` ou `client_consoles` en respectant le format suivant :
+2. Ajoutez la console dans la liste `server_consoles` ou `client_consoles` en respectant le format suivant (ces listes sont définies dans la section des variables globales, au début du fichier `console_manager.py`) :
    ```python
    {"name": "Nom de la Console", "command": "commande.msc", "description": "Description de la console."}
    ```
@@ -80,6 +83,18 @@ server_consoles.append(
 
 1. **Listes des consoles** :
    - Les consoles sont organisées dans deux listes Python :
+
+```python
+server_consoles = [
+    {"name": "Active Directory Users and Computers", "command": "dsa.msc", "description": "Gère les utilisateurs et ordinateurs AD."},
+    {"name": "DNS Manager", "command": "dnsmgmt.msc", "description": "Gère les zones et enregistrements DNS."}
+]
+
+client_consoles = [
+    {"name": "Computer Management", "command": "compmgmt.msc", "description": "Regroupe plusieurs outils d’administration."},
+    {"name": "Device Manager", "command": "devmgmt.msc", "description": "Gère les périphériques et pilotes matériels."}
+]
+```
      - `server_consoles` : Pour les outils Serveur.
      - `client_consoles` : Pour les outils Client.
 
@@ -88,7 +103,7 @@ server_consoles.append(
    - Les tableaux ont trois colonnes : Nom, Commande, Description.
 
 3. **Lancement des consoles** :
-   - Lorsqu'une console est sélectionnée, le programme utilise `subprocess.run()` pour exécuter la commande MMC associée.
+   - Lorsqu'une console est sélectionnée, le programme utilise `subprocess.run()` pour exécuter la commande MMC associée. Si une erreur se produit lors de l'exécution, une boîte de dialogue d'erreur s'affiche pour informer l'utilisateur.
 
 ---
 
@@ -101,6 +116,8 @@ Si vous souhaitez contribuer :
    git clone https://github.com/votre-utilisateur/console-manager-windows.git
    ```
 2. Créez une branche pour vos modifications :
+
+Exemple de nom de branche : `feature/new-console` pour ajouter une fonctionnalité ou `fix/console-launch-bug` pour corriger un problème.
    ```bash
    git checkout -b nouvelle-fonctionnalite
    ```
