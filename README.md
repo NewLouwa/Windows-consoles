@@ -1,4 +1,4 @@
-#English
+# English
 # Windows Console Manager
 
 A simple graphical interface in Python to manage and launch Windows consoles (MMC tools). This program is designed for system administrators and divides the consoles into two categories:
@@ -130,7 +130,7 @@ This project is licensed under the [MIT](LICENSE) license. You are free to use, 
 
 
 
-#FRench
+# FRench
 
 # Gestionnaire de Consoles Windows
 
