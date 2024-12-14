@@ -65,7 +65,7 @@ def show_details(event, console_list, details_text):
 # Interface graphique
 root = tk.Tk()
 root.title("Gestionnaire de Consoles")
-root.geometry("800x400")
+root.geometry("1600x800")
 
 # Cadre principal
 frame_main = tk.Frame(root)
